@@ -40,6 +40,8 @@ if __name__ == "__main__":
     apply = [
         {"type": "Frame", "name": 32, "apply": ["Geometry.PDelta"]},
         {"type": "Frame", "name": 32, "apply": ["Material.Plasticity"]},
+        {"type": "Shell", "name": 33, "apply": ["Material.Plasticity"]},
+        {"type": "Frame", "name": 33, "apply": ["Geometry.PDelta"]},
         {"type": "Frame", "name": 33, "apply": ["Material.Plasticity", "Geometry.PDelta"]}
     ]
 
@@ -48,15 +50,4 @@ if __name__ == "__main__":
     print(reshaped)
 
 
-# Output should look something like:
-# 
-#   reshaped = {
-#        "Frame": {32: ["Geometry.PDelta", "Material.Plasticity"], 33: []},
-#   }
 
-
-# reshaped["Frame"][32] == ["Geometry.PDelta", "Material.Plasticity"]
-
-# for change in apply:
-#             if change["type"] == "Frame" and change["name"] == frame["Frame"]:
-#                 changes_for_current_elem.extend(change["apply"])
