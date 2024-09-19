@@ -28,9 +28,9 @@ def reshape(apply):
         type_dict = reshaped[typ]
         name = change["name"]
         if name in type_dict:
-            type_dict[name].extend(change["apply"])
+            type_dict[name].update(change["apply"])
         else :
-            type_dict[name] = change["apply"]
+            type_dict[name] = set(change["apply"])
 
     return reshaped
 
